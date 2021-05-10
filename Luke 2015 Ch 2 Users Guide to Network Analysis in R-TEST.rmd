@@ -1,0 +1,127 @@
+---
+
+title: "TEST - Douglas Luke_Ch 2 Users Guide to Network Analysis in R"
+
+---
+
+##Network Analysis Fundamentals - Pt.1 
+
+
+```{r Installing UserNetR if needed}
+
+#if below is needed, please Remove Commenting
+## install.packages("devtools")
+# devtools::install_github("DougLuke/UserNetR")
+
+```
+
+
+
+```{r echo=FALSE, echo=FALSE}
+
+#Loading statnet suite and book data
+library(statnet)
+library(UserNetR)
+
+
+##Loading dataset Moreno from UserNetR
+# just data() if we want to see ALL datasets that are available
+
+data(Moreno)
+
+```
+
+### First Plot of the network
+
+```{r}
+gender <- Moreno %v% "gender"
+
+plot(Moreno, vertex.col = gender + 2, vertex.cex = 1.2)
+```
+
+
+### Network Size
+
+```{r}
+# We can find a whole range of info in the summary
+summary(Moreno, print.adj=FALSE)
+
+# BUT if we are only looking for network size...
+network.size(Moreno)
+
+
+
+
+```
+
+### Density
+
+```{r}
+
+# 46 is the number of observed ties (L)
+densityByHand <-  2 * 46 / (33*(33 - 1))
+densityByHand
+
+
+# same result with gden() - function
+
+gden(Moreno)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
